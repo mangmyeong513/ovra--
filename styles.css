@@ -60,3 +60,86 @@ body{
 button:focus,input:focus,textarea:focus{
   outline:2px solid rgba(183,196,255,.5); outline-offset:2px;
 }
+/* ===== moon & stardust layer ===== */
+:root{
+  --gold:#ffca5c;            /* 금가루 */
+  --moon1:#cfd9ff;           /* 달빛 그라데이션 */
+  --moon2:#e7ecff;
+}
+
+/* 전체 장면에 별가루+비네트 */
+.scene {
+  position: relative;
+  isolation: isolate;
+}
+.scene:before {
+  content:"";
+  position: fixed; inset:0; pointer-events:none; z-index:-1;
+  background:
+    radial-gradient(1200px 800px at 70% -10%, rgba(183,196,255,.12), transparent 60%),
+    radial-gradient(900px 600px at -10% 10%, rgba(34,48,88,.55), transparent 60%),
+    linear-gradient(180deg, #0b1020, #141a33);
+}
+.scene:after {
+  content:"";
+  position: fixed; inset:0; pointer-events:none; z-index:-1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,202,92,.7) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 60%, rgba(255,202,92,.9) 0 1.2px, transparent 1.2px),
+    radial-gradient(circle at 85% 20%, rgba(255,202,92,.6) 0 .9px, transparent .9px);
+  background-size: 180px 180px, 220px 220px, 260px 260px;
+  animation: twinkle 3.4s ease-in-out infinite;
+  opacity:.35;
+  filter: drop-shadow(0 0 1px rgba(255,202,92,.5));
+}
+
+/* 카드를 더 유리처럼 */
+.card-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* 그라데 보더(왼쪽 테두리 살짝 빛나게) */
+.border-gradient {
+  position: relative;
+}
+.border-gradient:before {
+  content:"";
+  position:absolute; left:-1px; top:0; bottom:0; width:3px; border-radius:3px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  opacity:.45;
+}
+
+/* 반짝 버튼 */
+.halo-btn{
+  background: linear-gradient(180deg, var(--glow), var(--glow2));
+  color:#0b1020; font-weight:600;
+  box-shadow: 0 6px 20px rgba(183,196,255,.25);
+}
+.halo-btn:hover{ filter: brightness(1.05) }
+
+/* 태그 칩을 더 반짝이게 */
+.tag-chip{
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--moon2);
+}
+
+/* 초승달 아이콘 */
+.moon-mark {
+  --s: 28px;
+  width: var(--s); height: var(--s); border-radius: 50%;
+  background: radial-gradient(circle at 30% 35%, var(--moon2), var(--moon1));
+  position: relative; display:inline-block;
+}
+.moon-mark:after{
+  content:""; position:absolute; inset:4px 8px 4px 8px; border-radius:50%;
+  background: #0b1020;
+}
+
+/* 비네트 */
+.vignette {
+  position: fixed; inset:0; pointer-events:none; z-index:-1;
+  box-shadow: inset 0 0 180px rgba(0,0,0,.55);
+}
