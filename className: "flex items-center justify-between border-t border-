@@ -134,11 +134,11 @@ const uploadImage = (file) => {
 // React Components
 const Header = ({ nick, onSearch, currentView, onViewChange, onProfileClick }) => (
   React.createElement('header', {
-    className: "sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-[#0a0a0acc] bg-[#0a0a0acc] border-b border-white/5"
+    className: "sticky top-0 z-40 backdrop-blur border-b border-white/10"
   }, [
     React.createElement('div', {
       key: 'container',
-      className: "mx-auto max-w-4xl px-4 py-3 flex items-center gap-3 justify-between"
+      className: "mx-auto max-w-4xl px-4 py-3 flex items-center gap-3 justify-between card-glass sparkle"
     }, [
       React.createElement('div', {
         key: 'logo',
@@ -146,7 +146,7 @@ const Header = ({ nick, onSearch, currentView, onViewChange, onProfileClick }) =
       }, [
         React.createElement('h1', {
           key: 'title',
-          className: "text-lg font-bold text-[--glow] cursor-pointer",
+          className: "text-lg font-bold text-[--glow] cursor-pointer animate-float",
           onClick: () => onViewChange('home')
         }, "OVRA"),
         React.createElement('nav', {
@@ -209,7 +209,7 @@ const Modal = ({ open, onClose, children }) => {
     }),
     React.createElement('div', {
       key: 'content',
-      className: "absolute inset-x-0 bottom-0 md:inset-0 md:m-auto md:h-[80vh] max-h-[90vh] overflow-auto mx-2 md:mx-auto md:max-w-2xl rounded-3xl bg-[--panel] border border-white/10 p-4"
+      className: "absolute inset-x-0 bottom-0 md:inset-0 md:m-auto md:h-[80vh] max-h-[90vh] overflow-auto mx-2 md:mx-auto md:max-w-2xl rounded-3xl card-glass sparkle p-4"
     }, children)
   ]);
 };
@@ -218,7 +218,7 @@ const PostCard = ({ post, onQuote, onOpen, onLike, onBookmark, onDelete, onRepor
   const date = new Date(post.ts).toLocaleString();
   
   return React.createElement('article', {
-    className: "rounded-lg border border-white/5 bg-[--panel] hover:bg-[#1a1a1a] transition-colors"
+    className: "rounded-lg card-glass sparkle hover:brightness-110 transition"
   }, [
     React.createElement('div', {
       key: 'content',
@@ -292,7 +292,7 @@ const PostCard = ({ post, onQuote, onOpen, onLike, onBookmark, onDelete, onRepor
         }),
         post.quoteOf && React.createElement('div', {
           key: 'quote',
-          className: "p-3 rounded-lg bg-white/5 border border-white/5"
+          className: "p-3 rounded-lg bg-white/5 border border-white/10 ring-1 ring-white/5"
         }, [
           React.createElement('div', {
             key: 'quoteLabel',
@@ -322,7 +322,7 @@ const PostCard = ({ post, onQuote, onOpen, onLike, onBookmark, onDelete, onRepor
     ]),
     React.createElement('div', {
       key: 'actions',
-      className: "flex items-center justify-between border-t border-white/5 px-4 py-2 text-[--sub] text-sm"
+      className: "flex items-center justify-between border-t border-white/10 px-4 py-2 text-[--sub] text-sm"
     }, [
       React.createElement('div', {
         key: 'actionButtons',
@@ -403,7 +403,7 @@ const Composer = ({ nick, quoteTarget, onCancelQuote, onPost }) => {
   };
   
   return React.createElement('div', {
-    className: "rounded-lg border border-white/5 bg-[--panel] p-4"
+    className: "rounded-lg p-4 card-glass sparkle"
   }, [
     React.createElement('div', {
       key: 'composerContent',
@@ -941,7 +941,7 @@ function App() {
     }, [
       currentView === 'home' && React.createElement('div', {
         key: 'settings',
-        className: "flex items-center justify-between text-xs text-[--sub] mb-6 p-3 rounded-lg bg-[--panel] border border-white/5"
+        className: "flex items-center justify-between text-xs text-[--sub] mb-6 p-3 rounded-lg card-glass sparkle"
       }, [
         React.createElement('div', {
           key: 'autoReply',
